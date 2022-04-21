@@ -25,5 +25,13 @@ class Queries extends CI_Model{
         // Dibaca : 
         // Kalau di db ada yang role_idnya 1
     }
+
+    public function adminExist($email, $password){
+        $chkAdmin_nana = $this->db->where(['email'=>$email, 'password' => $password])
+                                  ->get('tbl_users');
+        if($chkAdmin_nana->num_rows() > 0 ){
+            return $chkAdmin_nana->row();
+        }
+    }
 }
 ?>

@@ -1,13 +1,13 @@
 <?php include("inc/header.php");?>
 <!-- untuk include file header -->
-<!-- Tampilan form login admin -->
+<!-- Tampilan form login  untuk coadmin -->
 
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
 
 <!-- MENAMPILKAN FLASHDATA -->
 <div class="container mt-4">
-    <?= form_open("welcome/adminsignin", ['class' => 'form-horizontal']);?>
-   
+    <?= form_open("welcome/coadminsignin", ['class' => 'form-horizontal']);?>
+
     <?php if($msg_nana = $this->session->flashdata('message')):?>
 
         <div class="row">
@@ -20,11 +20,10 @@
     <?php endif; ?>
 
     <!-- welcome     : nama controller -->
-    <!-- adminsignin : nama method  -->
+    <!-- coadminsignin : nama method  -->
 
-    <h2>LOGIN ADMIN</h2>
+    <h2>LOGIN CO ADMIN</h2>
     <hr>
-
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
 
    <!-- EMAIL PENGELOLA -->
@@ -75,9 +74,8 @@
     </div>
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
 
-
  <button type="submit" class="btn btn-primary my-4 ">LOGIN</button>
-    <?= anchor("welcome","BATAL", ['class'=> 'btn btn-warning my-4']);?>
+    <?= anchor("welcome/coadmin","BATAL", ['class'=> 'btn btn-warning my-4']);?>
 
 
 

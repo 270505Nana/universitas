@@ -15,7 +15,7 @@
 			</div>
 
 				<div class="col-lg-4">
-				<?= anchor("welcome/login","LOGIN ADMIN", ['class'=> 'btn btn-primary']);?>
+				<?= anchor("welcome/loginadmin","LOGIN ADMIN", ['class'=> 'btn btn-primary']);?>
 				<!-- welcome    : controller -->
 				<!-- adminLogin : functionnya -->
 				</div>

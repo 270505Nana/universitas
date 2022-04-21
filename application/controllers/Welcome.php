@@ -5,6 +5,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		// Tampilan utama admin
 		$this->load->model('queries');
 		$chkAdminExist = $this->queries->chkAdminExist();
 		// queries   : model  
@@ -15,10 +16,12 @@ class Welcome extends CI_Controller {
 
 	public function coadmin()
 	{
+		// Tampilan utama co admin
 		$this->load->view('homecoadmin');
 	}
 
 	public function adminRegister(){
+		// Untuk menampilkan register
 		$this->load->model('queries');
 		$roles_nana = $this->queries->getRolesnana();
 		// roles_nana   : model  Queries
@@ -27,11 +30,12 @@ class Welcome extends CI_Controller {
 	}
 
 	public function adminSignup(){
+		// Untuk mengelola register
 		$this->form_validation->set_rules('username','Username','required',['required' => 'Username Admin Wajib diisi !']);
 		// ['required' => 'Nama Wajib diisi !'] : digunakan untuk mengganti pesan yang muncul kalau form username ini kosong, kita bisa edit sesuai yang kita mau
         // reqiuired : rules form nama harus diisi gaboleh kosong
 
-		$this->form_validation->set_rules('email'   ,'Email'   ,'required',['required' => 'Email Admiin Wajib diisi !']);
+		$this->form_validation->set_rules('email'   ,'Email'   ,'required',['required' => 'Email Admin Wajib diisi !']);
 		$this->form_validation->set_rules('gender'  ,'Gender'  ,'required',['required' => 'Jenis Kelamin Wajib diisi !']);
 		$this->form_validation->set_rules('role_id' ,'Role'    ,'required',['required' => 'Posisi Wajib diisi !']);
 		$this->form_validation->set_rules('password','Password','required',['required' => 'Password Wajib diisi !']);
@@ -64,7 +68,86 @@ class Welcome extends CI_Controller {
 	}
 
 	public function loginadmin(){
-		$this->load->view('admin/login');
+		// Untuk menampilkan halama login
+		$this->load->view('login');
+	}
+
+	public function logincoadmin(){
+		// Untuk menampilkan halama login
+		$this->load->view('logincoadmin');
+	}
+
+	public function adminsignin(){
+		// Ketika button login di klik akan mengarahkan kesini
+		$this->form_validation->set_rules('email'   ,'Email'   ,'required',['required' => 'Email Wajib diisi !']);
+		$this->form_validation->set_rules('password','Password','required',['required' => 'Password Wajib diisi !']);
+		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+		// Untuk mengvalidasi value yang dimasukkan
+		// text-danger
+		if($this->form_validation->run()){
+			$email = $this->input->post('email');
+			$password = sha1($this->input->post('password'));
+			$this->load->model('queries');
+			$userExist = $this->queries->adminExist($email, $password);
+			if($userExist){
+				$sessionData = [
+					'user_id'  => $userExist -> user_id,
+					'username' => $userExist -> username,
+					'email'    => $userExist -> email,
+					'role_id'  => $userExist -> role_id
+				];
+				$this->session->set_userdata($sessionData);
+				return redirect("admin/dashboard");
+				// Kalau benar password dan email akna diarahkan ke controller admin method dashboard
+				// admin     : nama controller untuk admin
+				// dashboard : nama methodnya, nanti akan memanggil file view dashboard
+			}
+			else{
+				$this->session->set_flashdata('message','Periksa Email dan Password Anda');
+				return redirect ("welcome/loginadmin");
+			}
+		}
+		else{
+			$this->loginadmin();
+		}	
+	}
+
+	public function coadminsignin(){
+		// Ketika button login di klik akan mengarahkan kesini
+		$this->form_validation->set_rules('email'   ,'Email'   ,'required',['required' => 'Email Wajib diisi !']);
+		$this->form_validation->set_rules('password','Password','required',['required' => 'Password Wajib diisi !']);
+		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+		// Untuk mengvalidasi value yang dimasukkan
+		// text-danger
+		if($this->form_validation->run()){
+			$email = $this->input->post('email');
+			$password = sha1($this->input->post('password'));
+			$this->load->model('queries');
+			$userExist = $this->queries->adminExist($email, $password);
+			if($userExist){
+				$sessionData = [
+					'user_id'  => $userExist -> user_id,
+					'username' => $userExist -> username,
+					'email'    => $userExist -> email,
+					'role_id'  => $userExist -> role_id
+				];
+				$this->session->set_userdata($sessionData);
+				return redirect("coadmin/dashboard");
+				// Kalau benar password dan email akna diarahkan ke controller coadmin method dashboard
+				// COadmin   : nama controller untuk co admin
+				// dashboard : nama methodnya, didalam method akan memanggil file views dashboardcoadmin  untuk ditampilkan
+			}
+			else{
+				$this->session->set_flashdata('message','Periksa Email dan Password Anda');
+				return redirect ("welcome/logincoadmin");
+				// Kalau salah tetap dihalaman login dan muncul flash data
+			}
+		}
+		else{
+			$this->login();
+		}	
+		
+
 	}
 
 }
