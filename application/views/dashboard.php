@@ -6,17 +6,18 @@
         <!-- Menyambut admin yang login -->
         <?php $username   = $this->session->userdata('username');?>
         <h4>Welcome <?php echo $username; ?>!</h4>
-        <?= anchor ("admin/addJurusan",   "TAMBAH JURUSAN",  ['class' => 'btn btn-primary']);?>
+        <?= anchor ("admin/addFakultas",   "TAMBAH FAKULTAS",['class' => 'btn btn-primary']);?>
         <?= anchor ("admin/addMahasiswa", "TAMBAH MAHASISWA",['class' => 'btn btn-primary']);?>
         <?= anchor ("admin/addCoadmin",   "TAMBAH CO ADMIN", ['class' => 'btn btn-primary']);?>
 
         <hr>
         <div class="row">
-            <table class="table tabble-hover">
+            <h4>DAFTAR CO ADMIN</h4>
+            <table class="table tabble-hover mt-5">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Nama Jurusan</th>
+                        <th scope="col">Nama Fakultas</th>
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>

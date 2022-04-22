@@ -1,45 +1,47 @@
-<?php include("inc/headercoadmin.php");?>
+<?php include("inc/header.php");?>
 <!-- untuk include file header -->
-<!-- Tampilan form login  untuk coadmin -->
+<!-- Tampilan form tambah fakultas -->
 
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
 
 <!-- MENAMPILKAN FLASHDATA -->
 <div class="container mt-4">
-    <?= form_open("welcome/coadminsignin", ['class' => 'form-horizontal']);?>
-
+    <?= form_open("admin/tambahfakultas", ['class' => 'form-horizontal']);?>
+   
     <?php if($msg_nana = $this->session->flashdata('message')):?>
 
         <div class="row">
             <div class="col-md-6">
-                <div class="alert alert-dismissible alert-danger">
+                <div class="alert alert-dismissible alert-success">
                     <?= $msg_nana; ?>
                 </div>
             </div>
         </div>
     <?php endif; ?>
 
-    <!-- welcome     : nama controller -->
-    <!-- coadminsignin : nama method  -->
+    <!-- admin     : nama controller -->
+    <!-- tambahfakultas : nama method  -->
 
-    <h2>LOGIN CO ADMIN</h2>
-    <hr>
+   
+
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
+    <h2>TAMBAH FAKULTAS</h2>
+    <hr>
 
-   <!-- EMAIL PENGELOLA -->
-   <!-- name : email -->
+   <!-- NAMA FAKULTAS -->
+   <!-- name : namafakultas -->
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label class="col-md-3 control-label my-2">Email Admin</label>
+                <label class="col-md-3 control-label my-2">Nama Fakultas</label>
                 <div class="col-md-9">
-                    <?= form_input(['name' => 'email', 'class'=> 'form-control','placeholder'=>'Masukkan email anda', 'value'=>set_value('email')]);?>
+                    <?= form_input(['name' => 'namafakultas', 'class'=> 'form-control','placeholder'=>'Nama Fakultas', 'value'=>set_value('namafakultas')]);?>
                     <!-- 'value'=>set_value('email')]); => menambah itu berfungsi agar ketika salah satu kolom kosong kan akan muncul flashdata
                     Jadi data username dan email yang udah kita masukkan ga akan ikut terulang -->
 
                 </div>
             </div>
-                  <?= form_error('email', '<div class="text-danger ">', '</div>');?>
+                  <?= form_error('namafakultas', '<div class="text-danger ">', '</div>');?>
         </div>
 
         <div class="col-md-6">
@@ -48,20 +50,32 @@
         </div>
 
     </div>
+
+    <button type="submit" class="btn btn-primary my-4 ">TAMBAH FAKULTAS</button>
+    <?= anchor("admin/dashboard","BATAL", ['class'=> 'btn btn-warning my-4']);?>
+
+
+
+</div>
+
+<?=form_close(); ?>
+</div>
+
+<?php include("inc/footer.php");?>	
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
 
-     <!-- PASSWORD -->
-    <!-- name: password -->
+     <!-- BRANCH
+    name: branch
     <br>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
             <label class="col-md-3 control-label ">Password Admin</label>
                 <div class="col-md-9">
-                    <?= form_password(['name' => 'password', 'class'=> 'form-control','placeholder'=>'Masukkan password admin']);?>
+                    <?= form_text(['name' => 'branch', 'class'=> 'form-control','placeholder'=>'Masukkan Branch']);?>
 
                 </div>
-                <?= form_error('password', '<div class="text-danger ">', '</div>');?>
+                <?= form_error('branch', '<div class="text-danger ">', '</div>');?>
             </div>
 
         </div>
@@ -71,18 +85,10 @@
 
         </div>
 
-    </div>
+    </div> -->
 <!-- __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
 
- <button type="submit" class="btn btn-primary my-4 ">LOGIN</button>
-    <?= anchor("welcome/coadmin","BATAL", ['class'=> 'btn btn-warning my-4']);?>
 
 
-
-</div>
-<?=form_close(); ?>
-</div>
-
-<?php include("inc/footer.php");?>	
 
     

@@ -1,4 +1,4 @@
-<?php include("inc/header.php");?>
+<?php include("inc/headercoadmin.php");?>
     <div class="container mt-4">
         <h1>CO ADMIN DASHBOARD</h1>
         <!-- Tampilan untuk co admin ketika berhasil login -->

@@ -33,5 +33,11 @@ class Queries extends CI_Model{
             return $chkAdmin_nana->row();
         }
     }
+
+    public function makeCollege($data){
+
+        return $this->db->insert('tbl_fakultas', $data);
+
+    }
 }
 ?>

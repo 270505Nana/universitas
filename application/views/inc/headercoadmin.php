@@ -29,7 +29,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a class="nav-link" href="logout">Logout</a>
         </li>
         
-        
       </ul>
     </div>
   </div>
