@@ -78,8 +78,8 @@ class Welcome extends CI_Controller {
 
 	public function logincoadmin(){
 		// Untuk menampilkan halama login
-		if($this->session->userdata("user_id") )
-		return redirect("coadmin/dashboard");
+		// if($this->session->userdata("user_id") )
+		// return redirect("Coadmin/dashboard");
 		// Ketika sudah login, maka untuk kembali ke halaman login hanya bisa menggunakan logout
 		// Gbisa lewat searchbar
 		$this->load->view('logincoadmin');

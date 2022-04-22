@@ -8,7 +8,7 @@
         <h4>Welcome <?php echo $username; ?>!</h4>
         <?= anchor ("admin/addFakultas",   "TAMBAH FAKULTAS",['class' => 'btn btn-primary']);?>
         <?= anchor ("admin/addMahasiswa", "TAMBAH MAHASISWA",['class' => 'btn btn-primary']);?>
-        <?= anchor ("admin/addCoadmin",   "TAMBAH CO ADMIN", ['class' => 'btn btn-primary']);?>
+        <?= anchor ("welcome/adminRegister",   "TAMBAH ADMIN & CO ADMIN", ['class' => 'btn btn-primary']);?>
 
         <hr>
         <div class="row">
@@ -26,15 +26,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-active">
-                       <td>Column</td>
-                       <td>Column</td>
-                       <td>Column</td>
-                       <td>Column</td>
-                       <td>Column</td>
-                       <td>Column</td>
-                       <td>Column</td>
-                    </tr>
+                    <?php if(count($users)):?>
+                        <?php foreach($users as $user):?>
+                        <tr class="table-active">
+                        <td><?= $user->jurusan_id;?></td>
+                        <td><?= $user->namafakultas;?></td>
+                        <td><?= $user->username;?></td>
+                        <td><?= $user->email;?></td>
+                        <td><?= $user->rolename;?></td>
+                        <td><?= $user->gender;?></td>
+                        <td>
+                            <?= anchor ("admin/viewFakultas",   "LIHAT", ['class' => 'btn btn-primary']);?>
+                        </td>
+                        </tr>
+                        <?php endforeach;?>
+                    <?php else: ?>
+                        <tr>
+                            <td>
+                               Tidak Ada Data Untuk ditampilkan!
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
+                
                 </tbody>
             </table>
             </div>

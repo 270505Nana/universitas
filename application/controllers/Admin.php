@@ -5,7 +5,10 @@ class Admin extends CI_Controller{
 
     public function dashboard(){
 
-      $this->load->view('dashboard');   
+      $this->load->model('queries');
+      $users_nana = $this->queries->viewAllFakultas();
+     
+      $this->load->view('dashboard', ['users' => $users_nana]);   
     }
 
     public function logout()
@@ -51,6 +54,11 @@ class Admin extends CI_Controller{
 
         // namafakultas : sesuai dengan column yang ada di dalama database
     }
+
+    // public function addCoadmin(){
+
+    //     $this->load->view('register');
+    // }
 
     public function __construct(){
         // Mengunci semua function yang ada, agar ketika belum login tidak bisa mengakses dashboard dll lewat search bar

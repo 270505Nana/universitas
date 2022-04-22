@@ -9,5 +9,6 @@
         <h4>Welcome <?php echo $username ; ?>!</h4>
         
         <?= anchor ("admin/addMahasiswa", "TAMBAH MAHASISWA",['class' => 'btn btn-primary']);?>
+        <hr>
     </div>
 <?php include ("inc/footer.php");?>

@@ -171,8 +171,8 @@
 
     </div>
 
-    <button type="submit" class="btn btn-primary my-4 ">REGISTER</button>
-    <?= anchor("welcome","BATAL", ['class'=> 'btn btn-warning my-4']);?>
+    <button type="submit" class="btn btn-primary my-4 ">TAMBAH ADMIN</button>
+    <?= anchor("admin/dashboard","BATAL", ['class'=> 'btn btn-warning my-4']);?>
 
 
 
