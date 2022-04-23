@@ -3,13 +3,15 @@
 class Admin extends CI_Controller{
     // Controller khusus admin ketika ingin memamnggil file view yang dibutuhkan
 
-    public function dashboard(){
-     // Untuk menampilkan view dashboard admin
-      $this->load->model('queries');
-      $users_nana = $this->queries->viewAllFakultas();
-     
-      $this->load->view('dashboard', ['users' => $users_nana]);   
+    
+    
+    public function dashboard()
+    {
+        $this->load->model('queries');
+        $allfakultas = $this->queries->AllFakultas();
+        $this->load->view('dashboard',['allfakultas' => $allfakultas]);
     }
+    
 
     public function logout()
 	{
