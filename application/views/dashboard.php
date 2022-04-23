@@ -29,7 +29,7 @@
                     <?php if(count($users)):?>
                         <?php foreach($users as $user):?>
                         <tr class="table-active">
-                        <td><?= $user->jurusan_id;?></td>
+                        <td><?= $user->college_id;?></td>
                         <td><?= $user->namafakultas;?></td>
                         <td><?= $user->username;?></td>
                         <td><?= $user->email;?></td>
