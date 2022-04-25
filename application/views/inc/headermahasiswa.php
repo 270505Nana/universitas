@@ -28,14 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-<!-- 
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="dashboard">Dashboard</a>
-        </li> -->
         
-        <li class="nav-item">
-          <a class="nav-link" href="logout">Logout</a>
-        </li>
         
         
       </ul>

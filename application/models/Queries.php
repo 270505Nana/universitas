@@ -85,6 +85,19 @@ class Queries extends CI_Model{
         return $this->db->insert('tbl_mahasiswa', $data);
         // Kita masukin data ke tbl_mahasiswa, dan data tersebut dipegang oleh var data
     }
+    public function allmahasiswa(){//getStudents
+
+        $this->db->select('*');
+        $this->db->from('tbl_mahasiswa');
+        $this->db->join('tbl_fakultas','tbl_fakultas.college_id = tbl_mahasiswa.college_id');
+        // $this->db->where(['tbl_mahasiswa.college_id' => $id]);
+        return $this->db->get()->result();
+
+        // $mahasiswa = $this->db->get('tbl_mahasiswa');
+        // if($mahasiswa->num_rows() > 0){
+        //     return $mahasiswa->result();
+        // }
+    }
     public function AllFakultas(){
         
         $allfakultas = $this->db->get('tbl_fakultas');
@@ -92,5 +105,6 @@ class Queries extends CI_Model{
             return $allfakultas->result();
         }
     }
+
 }
 ?>

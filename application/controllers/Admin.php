@@ -21,15 +21,15 @@ class Admin extends CI_Controller{
 		return redirect("Welcome/loginadmin");
 	}
 
-    public function addFakultas(){
-        // addCollege
+    public function addFakultas(){// addCollege
+        
         // Untuk menambahkan fakultas baru, berfungsi menampilkan form tambah fakultas
         // Tidak mengelola data !
        $this->load->view('addFakultas');
     }
 
-    public function addMahasiswa(){
-        // addStudent
+    public function addMahasiswa(){ // addStudent
+       
         $this->load->model('queries');
         $fakultas = $this->queries->getFakultasnana();
         // getColleges
@@ -106,6 +106,21 @@ class Admin extends CI_Controller{
             $this->addMahasiswa();
 
         }
+    }
+
+    public function viewMahasiswa(){//viewCollege
+        // $college_id : menggunakan parameter id college
+    $this->load->model('queries');
+        //  $this->queries->allmahasiswa($college_id);
+    
+        // Harus memanggil var mahasiswanya biar terhubung
+
+        //  1. Tambahkan di controller
+        // 2. Tambahkan di view
+        // 3 Dicocokkan dengan yang di model
+
+    $isi['mahasiswa']     = $this->queries->allmahasiswa();        
+    $this->load->view('viewMahasiswa',$isi);
     }
 
     public function __construct(){

@@ -9,31 +9,31 @@
         <?= anchor ("admin/addFakultas",   "TAMBAH FAKULTAS",['class' => 'btn btn-primary']);?>
         <?= anchor ("admin/addMahasiswa", "TAMBAH MAHASISWA",['class' => 'btn btn-primary']);?>
         <?= anchor ("welcome/adminRegister",   "TAMBAH ADMIN & CO ADMIN", ['class' => 'btn btn-primary']);?>
+        <?= anchor ("admin/viewMahasiswa",   "LIHAT DATA MAHASISWA", ['class' => 'btn btn-primary']);?>
 
         <hr>
         <div class="row my-6">
         <div class="col-md-12">
-            <h3>LIST FAKULTAS DAN DATA MAHASISWA</h3>
+            <h3>LIST FAKULTAS</h3>
 
             <table class="table table-striped mt-5">
             <thead>
                 <tr>
-                <th scope="col">NO</th>
+                <th scope="col">ID Fakultas</th>
                 <th scope="col">Nama Fakultas</th>
-                <th scope="col">Aksi</th>
                 </tr>
             </thead>
 
             <tbody>
                 <?php
-                $no=1;
                 foreach ($allfakultas as $fakulta){?>
                 <tr>
-                    <td><?= $no++;?></td>
+                    <td><?= $fakulta->college_id;?></td>
                     <td><?= $fakulta->namafakultas;?></td>
-                    <td> 
-                        <?= anchor ("admin/viewFakultas",   "DAFTAR MAHASISWA", ['class' => 'btn btn-primary']);?>
-                    </td>
+                    <!-- <td> 
+                        <?= anchor ("admin/viewMahasiswa/{$fakulta->college_id}",   "DAFTAR MAHASISWA", ['class' => 'buttons']);?>
+                        $fakulta->college_id = dia kaya biar sesuai dengan idnya gitu, biar idnya kepanggil dulu
+                    </td> -->
                 </tr>
 
                 <?php }               
