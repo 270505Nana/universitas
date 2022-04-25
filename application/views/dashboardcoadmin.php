@@ -9,6 +9,7 @@
         <h4>Welcome <?php echo $username ; ?>!</h4>
         
         <?= anchor ("coadmin/addMahasiswa", "TAMBAH MAHASISWA",['class' => 'btn btn-primary']);?>
+        <?= anchor ("coadmin/viewMahasiswa",   "LIHAT DATA MAHASISWA", ['class' => 'btn btn-primary']);?>
         <hr>
         <div class="row my-6">
         <div class="col-md-12">
@@ -19,7 +20,6 @@
                 <tr>
                 <th scope="col">ID Fakultas</th>
                 <th scope="col">Nama Fakultas</th>
-                <th scope="col">Aksi</th>
                 </tr>
             </thead>
 
@@ -29,9 +29,9 @@
                 <tr>
                     <td><?= $fakulta->college_id;?></td>
                     <td><?= $fakulta->namafakultas;?></td>
-                    <td> 
+                    <!-- <td> 
                         <?= anchor ("coadmin/viewFakultas/{$fakulta->college_id}",   "DAFTAR MAHASISWA", ['class' => 'buttons']);?>
-                    </td>
+                    </td> -->
                 </tr>
 
                 <?php }               

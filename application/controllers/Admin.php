@@ -123,6 +123,33 @@ class Admin extends CI_Controller{
     $this->load->view('viewMahasiswa',$isi);
     }
 
+    public function hapusMahasiswa($id){
+
+        $this->load->model('queries');
+        if($this->queries->removeStudent($id)){
+            return redirect("admin/viewMahasiswa/{$id}");
+        }
+
+    }
+
+    // public function editMahasiswa($id){
+    //     //editStudent
+    //     $this->load->model('queries');
+
+    //     $id = array('id' =>$id);
+    //     $data['editmahasiswa'] = $this->queries->getMahasiswa('tbl_mahasiswa')->result();
+
+
+        
+    //     // $edit_nana = $this->queries-> getMahasiswa($id);
+    //     // echo"<pre>";
+    //     // print_r($edit_nana);
+    //     // echo"</pre>";
+    //     // exit();
+     
+    //     $this->load->view('editMahasiswa', ['editmahasiswa' => $data]);
+    // }
+
     public function __construct(){
         // Mengunci semua function yang ada, agar ketika belum login tidak bisa mengakses dashboard dll lewat search bar
 

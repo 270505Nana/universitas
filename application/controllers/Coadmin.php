@@ -70,6 +70,20 @@ class COadmin extends CI_Controller{
 		$this->session->unset_userdata("user_id");	
 		return redirect("welcome/logincoadmin");
 	}
+    public function viewMahasiswa(){//viewCollege
+        // $college_id : menggunakan parameter id college
+    $this->load->model('queries');
+        //  $this->queries->allmahasiswa($college_id);
+    
+        // Harus memanggil var mahasiswanya biar terhubung
+
+        //  1. Tambahkan di controller
+        // 2. Tambahkan di view
+        // 3 Dicocokkan dengan yang di model
+
+    $isi['mahasiswa']     = $this->queries->allmahasiswa();        
+    $this->load->view('viewMahasiswaco',$isi);
+    }
 
     public function __construct(){
         // Mengunci semua function yang ada, agar ketika belum login tidak bisa mengakses dashboard dll lewat search bar

@@ -106,5 +106,23 @@ class Queries extends CI_Model{
         }
     }
 
+    public function getMahasiswa($id){
+        //getStudentRecord
+        // $this->db->select('*');
+        $this->db->select('tbl_fakultas.college_id','tbl_fakultas.namafakultas','tbl_mahasiswa.id', 'tbl_mahasiswa.email', 'tbl_mahasiswa.gender','tbl_mahasiswa.namasiswa','tbl_mahasiswa.program_studi');
+       
+         $this->db->from('tbl_mahasiswa', $id);
+         $this->db->join('tbl_fakultas','tbl_fakultas.college_id = tbl_mahasiswa.college_id');
+        // $edit_nana = $this->db->get();
+        // return $edit_nana->row();
+
+        // return $this->db->get_where('tbl_mahasiswa', $id);
+    }
+
+    public function removeStudent($id){
+        return $this->db->delete('tbl_mahasiswa',['id' => $id]);
+    }
+
+
 }
 ?>

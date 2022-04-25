@@ -1,6 +1,6 @@
 <?php include("inc/headermahasiswa.php");?>
     <div class="container mt-4">
-        <?= anchor ("admin/dashboard",   "KEMBALI", ['class' => 'buttons']);?>
+        <?= anchor ("coadmin/dashboard",   "KEMBALI", ['class' => 'buttons']);?>
         <h1>DATA MAHASISWA 
         
         </h1>
@@ -50,8 +50,8 @@
                     <td><?= $mhs->gender;?></td>
 
                     <td> 
-                        <!-- <?= anchor ("admin/editMahasiswa/{$mhs->id}",   "EDIT", ['class' => 'buttons']);?> -->
-                        <?= anchor ("admin/hapusMahasiswa/{$mhs->id}",   "HAPUS", ['class' => 'buttons']);?>
+                        <!-- <?= anchor ("coadmin/editMahasiswa/{$mhs->id}",   "EDIT", ['class' => 'buttons']);?> -->
+                        <?= anchor ("coadmin/hapusMahasiswa/{$mhs->id}",   "HAPUS", ['class' => 'buttons']);?>
                         
                         <!-- $fakulta->college_id = dia kaya biar sesuai dengan idnya gitu, biar idnya kepanggil dulu -->
                     </td>
